@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Contact us Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+
+<body>
+  <section></section>
+  <div class="container">
+    <form onsubmit="sendEmail(); reset()  ; ">
+      <h1>Contact us</h1>
+      <div class="id" >
+        <input type="text" placeholder="Full name" id="name">
+        <i class="far fa-user"></i>
+      </div>
+      <div class="id" >
+        <input type="email" placeholder="Email address" id="email">
+        <i class="far fa-envelope"></i>
+      </div>
+      <textarea cols="15" rows="5" placeholder="Enter what you would like from us.." id="message"></textarea>
+      <button>Send</button>
+    </form>
+  </div>
+  <script src = "https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail()
+    {
+              Email.send({
+            Host : "smtp.gmail.com",
+            Username : "customerenquir@gmail.com",
+            Password : "Grown1234",
+            To : "pball382@gmail.com",
+            From : "customerenquir@gmail.com",
+            Subject : "Contact us form",
+            Body : "A new user has tried to contact us " + document.getElementById("name").value
+            +"<br> Email " + document.getElementById("email").value
+            +"<br> Message " +document.getElementById("message").value
+        }).then(
+        );
+    }
+  </script>
+</body>
+
+</html>
